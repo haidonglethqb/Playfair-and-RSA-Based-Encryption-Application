@@ -43,6 +43,7 @@
             button1 = new Button();
             btnSave = new Button();
             btnSaveKey = new Button();
+            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // btnEncrypt
@@ -65,7 +66,7 @@
             // 
             // richTextBoxOutput
             // 
-            richTextBoxOutput.Location = new Point(560, 288);
+            richTextBoxOutput.Location = new Point(643, 276);
             richTextBoxOutput.Name = "richTextBoxOutput";
             richTextBoxOutput.Size = new Size(345, 315);
             richTextBoxOutput.TabIndex = 2;
@@ -103,7 +104,7 @@
             // 
             // richTextBoxKeyDisplay
             // 
-            richTextBoxKeyDisplay.Location = new Point(329, 65);
+            richTextBoxKeyDisplay.Location = new Point(324, 66);
             richTextBoxKeyDisplay.Name = "richTextBoxKeyDisplay";
             richTextBoxKeyDisplay.Size = new Size(242, 158);
             richTextBoxKeyDisplay.TabIndex = 6;
@@ -165,7 +166,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(911, 288);
+            btnSave.Location = new Point(985, 276);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(119, 63);
             btnSave.TabIndex = 14;
@@ -183,11 +184,19 @@
             btnSaveKey.UseVisualStyleBackColor = true;
             btnSaveKey.Click += btnSaveKey_Click;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(1, 639);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(1181, 23);
+            progressBar1.TabIndex = 16;
+            // 
             // Rsa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1181, 658);
+            Controls.Add(progressBar1);
             Controls.Add(btnSaveKey);
             Controls.Add(btnSave);
             Controls.Add(button1);
@@ -226,5 +235,6 @@
         private Button button1;
         private Button btnSave;
         private Button btnSaveKey;
+        private ProgressBar progressBar1;
     }
 }

@@ -11,7 +11,8 @@ using System.Security.Cryptography;
 using System.Xml;
 using System.Xml.Linq;
 using System.Security.Cryptography.X509Certificates;
-
+using System.Threading.Tasks;
+using System.Threading;
 namespace NT101
 {
     public partial class Rsa : Form
@@ -25,6 +26,7 @@ namespace NT101
         string filepathdecrypt;
         string prvkey = "";
         string datatosave;
+        int trueValue = 0;
         private void btnGenerateKey_Click(object sender, EventArgs e)
         {
 
@@ -64,6 +66,7 @@ namespace NT101
                 MessageBox.Show("Please select a key size.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            trueValue = value;
             using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(value))
             {
 
@@ -82,8 +85,9 @@ namespace NT101
         }
 
 
-        private void btnEncrypt_Click(object sender, EventArgs e)
+        private async void btnEncrypt_Click(object sender, EventArgs e)
         {
+            richTextBoxOutput.Clear();
             if (richTextBoxKeyDisplay.Text == "")
             {
                 MessageBox.Show("Please generate key first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -95,6 +99,7 @@ namespace NT101
                 MessageBox.Show("Please upload a file first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            progressBar1.Visible = true;
             byte[] filedata = System.IO.File.ReadAllBytes(filepath);
 
             string text = System.Text.Encoding.UTF8.GetString(filedata);
@@ -132,10 +137,32 @@ namespace NT101
                     encryptedText = Convert.ToBase64String(combinedData);
                 }
             }
+            int progressbarvalue = 0;
+            if(trueValue == 512)
+            {
+                progressbarvalue = 10;
+            }
+            else if (trueValue == 1024)
+            {
+                progressbarvalue = 20;
+            }
+            else if (trueValue == 2048)
+            {
+                progressbarvalue = 50;
+            }
+            progressBar1.Value = 100;
+            int progress = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                progress += 1;
+                Thread.Sleep(progressbarvalue);
+                progressBar1.Value = progress;
+            }
+            progressBar1.Visible = false;
             richTextBoxOutput.Text = encryptedText;
             richTextBoxKeyDisplay.Clear();
             richTextBoxKeyDisplay.Text += prvkey;
-
+           
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -145,7 +172,7 @@ namespace NT101
                     System.IO.File.WriteAllText(saveFileDialog.FileName, encryptedText);
                 }
             }
-            MessageBox.Show("Save this private key to later decrypted your file");
+         
         }
 
 
@@ -180,6 +207,7 @@ namespace NT101
             btnStart.Visible = false;
             btnSave.Visible = false;
             btnSaveKey.Visible = false;
+            progressBar1.Visible = false;
         }
 
 
