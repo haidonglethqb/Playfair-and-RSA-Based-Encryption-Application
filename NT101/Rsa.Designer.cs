@@ -42,6 +42,7 @@
             btnStart = new Button();
             button1 = new Button();
             btnSave = new Button();
+            btnSaveKey = new Button();
             SuspendLayout();
             // 
             // btnEncrypt
@@ -102,9 +103,9 @@
             // 
             // richTextBoxKeyDisplay
             // 
-            richTextBoxKeyDisplay.Location = new Point(357, 29);
+            richTextBoxKeyDisplay.Location = new Point(329, 65);
             richTextBoxKeyDisplay.Name = "richTextBoxKeyDisplay";
-            richTextBoxKeyDisplay.Size = new Size(162, 158);
+            richTextBoxKeyDisplay.Size = new Size(242, 158);
             richTextBoxKeyDisplay.TabIndex = 6;
             richTextBoxKeyDisplay.Text = "";
             // 
@@ -154,7 +155,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1, -1);
+            button1.Location = new Point(1, 0);
             button1.Name = "button1";
             button1.Size = new Size(73, 46);
             button1.TabIndex = 13;
@@ -172,11 +173,22 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // btnSaveKey
+            // 
+            btnSaveKey.Location = new Point(583, 66);
+            btnSaveKey.Name = "btnSaveKey";
+            btnSaveKey.Size = new Size(75, 54);
+            btnSaveKey.TabIndex = 15;
+            btnSaveKey.Text = "Save Key";
+            btnSaveKey.UseVisualStyleBackColor = true;
+            btnSaveKey.Click += btnSaveKey_Click;
+            // 
             // Rsa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1181, 658);
+            Controls.Add(btnSaveKey);
             Controls.Add(btnSave);
             Controls.Add(button1);
             Controls.Add(btnStart);
@@ -213,5 +225,6 @@
         private Button btnStart;
         private Button button1;
         private Button btnSave;
+        private Button btnSaveKey;
     }
 }

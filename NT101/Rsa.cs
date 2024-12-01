@@ -78,6 +78,7 @@ namespace NT101
             }
             pbkey = publicKey;
             prvkey = privateKey;
+            btnSaveKey.Visible = true;
         }
 
 
@@ -89,7 +90,11 @@ namespace NT101
                 return;
             }
             string text1 = richTextBoxInput.Text;
-
+            if (filepath == null)
+            {
+                MessageBox.Show("Please upload a file first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             byte[] filedata = System.IO.File.ReadAllBytes(filepath);
 
             string text = System.Text.Encoding.UTF8.GetString(filedata);
@@ -174,6 +179,7 @@ namespace NT101
         {
             btnStart.Visible = false;
             btnSave.Visible = false;
+            btnSaveKey.Visible = false;
         }
 
 
@@ -243,6 +249,19 @@ namespace NT101
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     System.IO.File.WriteAllText(saveFileDialog.FileName, datatosave);
+                }
+            }
+        }
+
+        private void btnSaveKey_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save Encrypted File";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.File.WriteAllText(saveFileDialog.FileName, prvkey);
                 }
             }
         }
