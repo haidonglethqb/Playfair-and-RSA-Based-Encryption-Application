@@ -182,7 +182,7 @@
             btnSaveKey.Name = "btnSaveKey";
             btnSaveKey.Size = new Size(75, 54);
             btnSaveKey.TabIndex = 15;
-            btnSaveKey.Text = "Save Key";
+            btnSaveKey.Text = "Save Private Key";
             btnSaveKey.UseVisualStyleBackColor = true;
             btnSaveKey.Click += btnSaveKey_Click;
             // 
@@ -209,8 +209,9 @@
             button2.Name = "button2";
             button2.Size = new Size(75, 69);
             button2.TabIndex = 18;
-            button2.Text = "button2";
+            button2.Text = "Save Public Key";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Rsa
             // 

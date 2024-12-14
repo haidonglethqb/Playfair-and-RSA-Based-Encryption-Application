@@ -30,7 +30,7 @@ namespace NT101
         int trueValue = 0;
         private void btnGenerateKey_Click(object sender, EventArgs e)
         {
-            
+
 
             int value = 0;
             string publicKey = "";
@@ -78,14 +78,15 @@ namespace NT101
                 privateKey = Convert.ToBase64String(rsa.ExportRSAPrivateKey());
 
                 richTextBoxKeyDisplay.Text = $"Your Key Size is {value} \n\nPublic Key: {publicKey}\n\nPrivate Key: {privateKey}";
-                publicKey = rsa.ToXmlString(true);
+                publicKey = rsa.ToXmlString(false); 
                 privateKey = rsa.ToXmlString(true);
                 check = true;
             }
             pbkey = publicKey;
             prvkey = privateKey;
             btnSaveKey.Visible = true;
-            
+            button2.Visible = true;
+
         }
 
 
@@ -208,6 +209,7 @@ namespace NT101
                 richTextBoxInput.Text = "Your has uploaded the decrypted file successfully";
                 btnStart.Visible = true;
             }
+            btnuploadkey.Text = "Upload Private Key";
         }
 
         private void Rsa_Load(object sender, EventArgs e)
@@ -216,6 +218,7 @@ namespace NT101
             btnSave.Visible = false;
             btnSaveKey.Visible = false;
             progressBar1.Visible = false;
+            button2.Visible = false;
         }
 
 
@@ -309,6 +312,19 @@ namespace NT101
                 string keyFilePath = openFileDialog1.FileName;
                 string keyContent = System.IO.File.ReadAllText(keyFilePath);
                 richTextBoxKeyDisplay.Text = keyContent;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save Public Key";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.File.WriteAllText(saveFileDialog.FileName, pbkey);
+                }
             }
         }
     }
