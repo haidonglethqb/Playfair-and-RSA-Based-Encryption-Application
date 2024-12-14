@@ -32,7 +32,7 @@ namespace NT101
         {
             var psi = new System.Diagnostics.ProcessStartInfo
             {
-                FileName = "https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a_Playfair",
+                FileName = "https://en.wikipedia.org/wiki/Playfair_cipher",
                 UseShellExecute = true
             };
             System.Diagnostics.Process.Start(psi);
