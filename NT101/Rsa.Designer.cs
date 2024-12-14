@@ -44,6 +44,8 @@
             btnSave = new Button();
             btnSaveKey = new Button();
             progressBar1 = new ProgressBar();
+            btnuploadkey = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // btnEncrypt
@@ -176,7 +178,7 @@
             // 
             // btnSaveKey
             // 
-            btnSaveKey.Location = new Point(583, 66);
+            btnSaveKey.Location = new Point(572, 66);
             btnSaveKey.Name = "btnSaveKey";
             btnSaveKey.Size = new Size(75, 54);
             btnSaveKey.TabIndex = 15;
@@ -191,11 +193,32 @@
             progressBar1.Size = new Size(1181, 23);
             progressBar1.TabIndex = 16;
             // 
+            // btnuploadkey
+            // 
+            btnuploadkey.Location = new Point(40, 163);
+            btnuploadkey.Name = "btnuploadkey";
+            btnuploadkey.Size = new Size(130, 61);
+            btnuploadkey.TabIndex = 17;
+            btnuploadkey.Text = "Upload Key";
+            btnuploadkey.UseVisualStyleBackColor = true;
+            btnuploadkey.Click += btnuploadkey_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(572, 136);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 69);
+            button2.TabIndex = 18;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Rsa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1181, 658);
+            Controls.Add(button2);
+            Controls.Add(btnuploadkey);
             Controls.Add(progressBar1);
             Controls.Add(btnSaveKey);
             Controls.Add(btnSave);
@@ -236,5 +259,7 @@
         private Button btnSave;
         private Button btnSaveKey;
         private ProgressBar progressBar1;
+        private Button btnuploadkey;
+        private Button button2;
     }
 }

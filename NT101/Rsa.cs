@@ -21,6 +21,7 @@ namespace NT101
         {
             InitializeComponent();
         }
+        Boolean check = false;
         string filepath;
         string pbkey = "";
         string filepathdecrypt;
@@ -29,6 +30,7 @@ namespace NT101
         int trueValue = 0;
         private void btnGenerateKey_Click(object sender, EventArgs e)
         {
+            
 
             int value = 0;
             string publicKey = "";
@@ -76,21 +78,27 @@ namespace NT101
                 privateKey = Convert.ToBase64String(rsa.ExportRSAPrivateKey());
 
                 richTextBoxKeyDisplay.Text = $"Your Key Size is {value} \n\nPublic Key: {publicKey}\n\nPrivate Key: {privateKey}";
-                publicKey = rsa.ToXmlString(false);
+                publicKey = rsa.ToXmlString(true);
                 privateKey = rsa.ToXmlString(true);
+                check = true;
             }
             pbkey = publicKey;
             prvkey = privateKey;
             btnSaveKey.Visible = true;
+            
         }
 
 
         private async void btnEncrypt_Click(object sender, EventArgs e)
         {
+            if (check == false)
+            {
+                pbkey = richTextBoxKeyDisplay.Text;
+            }
             richTextBoxOutput.Clear();
             if (richTextBoxKeyDisplay.Text == "")
             {
-                MessageBox.Show("Please generate key first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please generate key or upload your personal key first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string text1 = richTextBoxInput.Text;
@@ -138,7 +146,7 @@ namespace NT101
                 }
             }
             int progressbarvalue = 0;
-            if(trueValue == 512)
+            if (trueValue == 512)
             {
                 progressbarvalue = 10;
             }
@@ -162,7 +170,7 @@ namespace NT101
             richTextBoxOutput.Text = encryptedText;
             richTextBoxKeyDisplay.Clear();
             richTextBoxKeyDisplay.Text += prvkey;
-           
+
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -172,7 +180,7 @@ namespace NT101
                     System.IO.File.WriteAllText(saveFileDialog.FileName, encryptedText);
                 }
             }
-         
+
         }
 
 
@@ -216,7 +224,7 @@ namespace NT101
         {
             if (richTextBoxKeyDisplay.Text == "")
             {
-                MessageBox.Show("Please enter your private key in XML Format <3", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter or upload your private key in XML Format <3", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string text = System.IO.File.ReadAllText(filepathdecrypt);
@@ -291,6 +299,16 @@ namespace NT101
                 {
                     System.IO.File.WriteAllText(saveFileDialog.FileName, prvkey);
                 }
+            }
+        }
+
+        private void btnuploadkey_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string keyFilePath = openFileDialog1.FileName;
+                string keyContent = System.IO.File.ReadAllText(keyFilePath);
+                richTextBoxKeyDisplay.Text = keyContent;
             }
         }
     }
