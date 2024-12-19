@@ -36,55 +36,77 @@
             // 
             // button1
             // 
-            button1.Location = new Point(96, 78);
+            button1.BackgroundImage = Properties.Resources._3;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(510, 180);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(190, 197);
+            button1.Size = new Size(325, 217);
             button1.TabIndex = 0;
-            button1.Text = "PlayFair";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(413, 78);
+            button2.BackgroundImage = Properties.Resources._2;
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(64, 176);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(165, 197);
+            button2.Size = new Size(325, 224);
             button2.TabIndex = 1;
-            button2.Text = "RSA";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // btnLearnAboutRsa
             // 
-            btnLearnAboutRsa.Location = new Point(412, 302);
+            btnLearnAboutRsa.BackgroundImage = Properties.Resources._4;
+            btnLearnAboutRsa.BackgroundImageLayout = ImageLayout.Stretch;
+            btnLearnAboutRsa.FlatAppearance.BorderSize = 0;
+            btnLearnAboutRsa.FlatStyle = FlatStyle.Flat;
+            btnLearnAboutRsa.Location = new Point(133, 371);
+            btnLearnAboutRsa.Margin = new Padding(3, 4, 3, 4);
             btnLearnAboutRsa.Name = "btnLearnAboutRsa";
-            btnLearnAboutRsa.Size = new Size(166, 55);
+            btnLearnAboutRsa.Size = new Size(154, 108);
             btnLearnAboutRsa.TabIndex = 2;
-            btnLearnAboutRsa.Text = "Learn About Rsa";
             btnLearnAboutRsa.UseVisualStyleBackColor = true;
             btnLearnAboutRsa.Click += btnLearnAboutRsa_Click;
             // 
             // btnLearnAboutPlayFair
             // 
-            btnLearnAboutPlayFair.Location = new Point(99, 302);
+            btnLearnAboutPlayFair.BackgroundImage = Properties.Resources._5;
+            btnLearnAboutPlayFair.BackgroundImageLayout = ImageLayout.Stretch;
+            btnLearnAboutPlayFair.FlatAppearance.BorderSize = 0;
+            btnLearnAboutPlayFair.FlatStyle = FlatStyle.Flat;
+            btnLearnAboutPlayFair.Location = new Point(582, 371);
+            btnLearnAboutPlayFair.Margin = new Padding(3, 4, 3, 4);
             btnLearnAboutPlayFair.Name = "btnLearnAboutPlayFair";
-            btnLearnAboutPlayFair.Size = new Size(187, 55);
+            btnLearnAboutPlayFair.Size = new Size(177, 108);
             btnLearnAboutPlayFair.TabIndex = 3;
-            btnLearnAboutPlayFair.Text = "Learn About PlayFair";
             btnLearnAboutPlayFair.UseVisualStyleBackColor = true;
             btnLearnAboutPlayFair.Click += btnLearnAboutPlayFair_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources._1;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(868, 535);
             Controls.Add(btnLearnAboutPlayFair);
             Controls.Add(btnLearnAboutRsa);
             Controls.Add(button2);
             Controls.Add(button1);
+            DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 

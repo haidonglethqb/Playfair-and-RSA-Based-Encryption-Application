@@ -32,83 +32,77 @@
             btnDecrypt = new Button();
             txtInput = new TextBox();
             txtKey = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
             richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
             // btnEncrypt
             // 
-            btnEncrypt.Location = new Point(44, 37);
+            btnEncrypt.BackgroundImage = Properties.Resources._2_playfair;
+            btnEncrypt.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEncrypt.FlatAppearance.BorderSize = 0;
+            btnEncrypt.FlatStyle = FlatStyle.Flat;
+            btnEncrypt.ForeColor = SystemColors.ControlDarkDark;
+            btnEncrypt.Location = new Point(426, 466);
+            btnEncrypt.Margin = new Padding(3, 4, 3, 4);
             btnEncrypt.Name = "btnEncrypt";
-            btnEncrypt.Size = new Size(75, 23);
+            btnEncrypt.Size = new Size(136, 80);
             btnEncrypt.TabIndex = 0;
-            btnEncrypt.Text = "Encrypt";
             btnEncrypt.UseVisualStyleBackColor = true;
             btnEncrypt.Click += btnEncrypt_Click;
             // 
             // btnDecrypt
             // 
-            btnDecrypt.Location = new Point(44, 107);
+            btnDecrypt.BackgroundImage = Properties.Resources._3_playfair;
+            btnDecrypt.BackgroundImageLayout = ImageLayout.Stretch;
+            btnDecrypt.FlatAppearance.BorderSize = 0;
+            btnDecrypt.FlatStyle = FlatStyle.Flat;
+            btnDecrypt.Location = new Point(426, 554);
+            btnDecrypt.Margin = new Padding(3, 4, 3, 4);
             btnDecrypt.Name = "btnDecrypt";
-            btnDecrypt.Size = new Size(75, 23);
+            btnDecrypt.Size = new Size(136, 84);
             btnDecrypt.TabIndex = 1;
-            btnDecrypt.Text = "Decrypt";
             btnDecrypt.UseVisualStyleBackColor = true;
             btnDecrypt.Click += btnDecrypt_Click;
             // 
             // txtInput
             // 
-            txtInput.Location = new Point(221, 38);
+            txtInput.Location = new Point(67, 359);
+            txtInput.Margin = new Padding(3, 4, 3, 4);
+            txtInput.Multiline = true;
             txtInput.Name = "txtInput";
-            txtInput.Size = new Size(178, 23);
+            txtInput.Size = new Size(287, 194);
             txtInput.TabIndex = 2;
             // 
             // txtKey
             // 
-            txtKey.Location = new Point(518, 38);
+            txtKey.Location = new Point(387, 422);
+            txtKey.Margin = new Padding(3, 4, 3, 4);
             txtKey.Name = "txtKey";
-            txtKey.Size = new Size(221, 23);
+            txtKey.Size = new Size(241, 27);
             txtKey.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(469, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(27, 15);
-            label1.TabIndex = 4;
-            label1.Text = "KEY";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(169, 42);
-            label2.Name = "label2";
-            label2.Size = new Size(35, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Input";
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(69, 188);
+            richTextBox1.Location = new Point(661, 359);
+            richTextBox1.Margin = new Padding(3, 4, 3, 4);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(591, 220);
+            richTextBox1.Size = new Size(286, 194);
             richTextBox1.TabIndex = 6;
             richTextBox1.Text = "";
             // 
             // playfair
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources._1_playfair;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1015, 651);
             Controls.Add(richTextBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(txtKey);
             Controls.Add(txtInput);
             Controls.Add(btnDecrypt);
             Controls.Add(btnEncrypt);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "playfair";
             Text = "playfair";
             ResumeLayout(false);
@@ -121,8 +115,6 @@
         private Button btnDecrypt;
         private TextBox txtInput;
         private TextBox txtKey;
-        private Label label1;
-        private Label label2;
         private RichTextBox richTextBox1;
     }
 }

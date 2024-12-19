@@ -37,5 +37,10 @@ namespace NT101
             };
             System.Diagnostics.Process.Start(psi);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
